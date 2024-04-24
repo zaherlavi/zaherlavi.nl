@@ -1,7 +1,7 @@
 import React from "react";
 import { merriweather } from "./ui/fonts";
-import Button from '@/components/Button';
-import Navbar from '@/components/Navbar';
+import Button from '@/src/components/Button';
+import Navbar from '@/src/components/Navbar';
 
 
 export default function Home() {
