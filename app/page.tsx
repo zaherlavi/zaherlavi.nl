@@ -1,7 +1,8 @@
 import React from "react";
 import { merriweather } from "./ui/fonts";
-import Button from '@/src/components/Button';
-import Navbar from '@/src/components/Navbar';
+import Button from '@/components/Button';
+import Navbar from '@/components/Navbar';
+import Image from 'next/image'
 
 
 export default function Home() {
@@ -33,22 +34,47 @@ export default function Home() {
           <ul className="lg:block flex justify-center">
             <li className="p-5">
               <a href="https://github.com/zaherlavi">
-                <img className="hover:scale-110" src="./githubIcon.svg" alt="Github Icon" />
+                <Image
+                  className="hover:scale-110"
+                  width={48}
+                  height={48}
+                  src="/githubIcon.svg" 
+                  alt="Github Icon" 
+                  quality={90}
+                  />
               </a>
             </li>
             <li className="p-5">
               <a href="https://www.linkedin.com/in/zaher-lavi-a85a70172/">
-                <img className="hover:scale-110" src="./linkedinIcon.svg" alt="linkedin Icon" />
+                <Image
+                  className="hover:scale-110" 
+                  src="./linkedinIcon.svg"
+                  width={48}
+                  height={48} 
+                  alt="linkedin Icon" 
+                  />
               </a>
             </li>
             <li className="p-5">
               <a href="https://www.instagram.com/zaher.lavi/">
-                <img className="hover:scale-110" src="./instagramIcon.svg" alt="Instagram Icon" />
+                <Image 
+                  className="hover:scale-110"
+                  src="./instagramIcon.svg" 
+                  width={48}
+                  height={48}
+                  alt="Instagram Icon" 
+                  />
               </a>
             </li>
             <li className="p-5">
               <a href="https://twitter.com/NULL____pointer">
-                <img className="hover:scale-110" src="./xIcon.svg" alt="X Icon" />
+                <Image 
+                  className="hover:scale-110"
+                  src="./xIcon.svg"
+                  width={48}
+                  height={48}
+                  alt="X Icon" 
+                  />
               </a>
             </li>
           </ul>
@@ -57,7 +83,7 @@ export default function Home() {
       <nav className="flex justify-start md:justify-center">
         <Navbar />
       </nav>
-      <footer className={`${merriweather.className} fixed bottom-0 left-0 right-0 flex justify-center w-full bg-gradient-to-r from-purple-500 to-white text-transparent bg-clip-text`}>
+      <footer className={`${merriweather.className} fixed bottom-5 left-0 right-0 flex justify-center w-full bg-gradient-to-r from-purple-500 to-white text-transparent bg-clip-text`}>
         <p className="text-lg">© 2024 Zaher Lavi</p>
       </footer>
 
