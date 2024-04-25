@@ -2,14 +2,18 @@ import React from "react";
 import { merriweather } from "./ui/fonts";
 import Button from '@/components/Button';
 import Navbar from '@/components/Navbar';
+import NavbarMobile from "@/components/NavbarMobile";
 import Image from 'next/image'
 
 
 export default function Home() {
   return (
-    <>
-      <div className="grid lg:grid-cols-2 md:justify-items-center mt-32 mb-32">
-        <div className="w-1/2 flex items-center">
+    <div className="grid grid-cols-1">
+      <nav className="flex md:hidden items-center">
+        <NavbarMobile />
+      </nav>
+      <div className="order-2 md:order-1 grid lg:grid-cols-2 md:justify-items-center mt-20 md:mt-32 md:mb-32">
+        <div className="md:w-1/2 flex justify-center md:items-center mb-20 md:mb-0">
           <div>
             <div>
               <h1 className={`${merriweather.className} antialiased tracking- wider leading-10 bg-gradient-to-r from-white to-purple-500 text-transparent bg-clip-text text-2xl md:text-4xl pb-2`}>
@@ -30,7 +34,7 @@ export default function Home() {
             </Button>
           </div>
         </div>
-        <div className="w-1/2 flex md:justify-center">
+        <div className="md:w-1/2 flex justify-center md:items-center">
           <ul className="lg:block flex justify-center">
             <li className="p-5">
               <a href="https://github.com/zaherlavi">
@@ -80,13 +84,13 @@ export default function Home() {
           </ul>
         </div>
       </div>
-      <nav className="flex justify-start md:justify-center">
+      <nav className="order-1 md:order-2 hidden md:flex justify-start md:justify-center">
         <Navbar />
       </nav>
-      <footer className={`${merriweather.className} fixed bottom-5 left-0 right-0 flex justify-center w-full bg-gradient-to-r from-purple-500 to-white text-transparent bg-clip-text`}>
+      <footer className={`${merriweather.className} fixed order-3 md:order-3 bottom-5 left-0 right-0 flex justify-center w-full bg-gradient-to-r from-purple-500 to-white text-transparent bg-clip-text`}>
         <p className="text-lg">© 2024 Zaher Lavi</p>
       </footer>
 
-    </>
+    </div >
   );
 }
