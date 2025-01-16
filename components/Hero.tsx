@@ -1,4 +1,4 @@
-import ProfileImage from './ProfileImage';
+import ProfileImage from "./ProfileImage";
 
 const Hero = () => {
   return (
@@ -10,7 +10,9 @@ const Hero = () => {
             {/* Text Content */}
             <div className="space-y-6">
               <div>
-                <h2 className="text-purple-400 text-lg font-medium mb-2">Welcome to my portfolio</h2>
+                <h2 className="text-purple-400 text-lg font-medium mb-2">
+                  Welcome to my portfolio
+                </h2>
                 <h1 className="text-5xl md:text-6xl font-bold mb-4">
                   <span className="bg-gradient-to-r from-white to-purple-500 text-transparent bg-clip-text">
                     Hi, I'm Zaher Lavi
@@ -21,26 +23,27 @@ const Hero = () => {
                 </p>
               </div>
               <p className="text-gray-400 text-lg leading-relaxed max-w-2xl">
-                A Computer Science student passionate about creating innovative solutions 
-                and exploring new technologies. Based in The Netherlands, I'm always eager 
-                to take on new challenges and learn from every experience.
+                A Computer Science student passionate about creating innovative
+                solutions and exploring new technologies. Based in The
+                Netherlands, I'm always eager to take on new challenges and
+                learn from every experience.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a 
-                  href="#projects" 
+                <a
+                  href="#projects"
                   className="px-6 py-3 bg-purple-600 hover:bg-purple-700 transition-colors rounded-lg text-white font-medium text-center"
                 >
                   View My Work
                 </a>
-                <a 
-                  href="#contact" 
+                <a
+                  href="#contact"
                   className="px-6 py-3 border border-purple-500 hover:border-purple-400 rounded-lg text-white font-medium text-center"
                 >
                   Get in Touch
                 </a>
               </div>
             </div>
-            
+
             {/* Profile Image */}
             <ProfileImage />
           </div>
@@ -51,17 +54,40 @@ const Hero = () => {
         <div className="absolute -z-10 bottom-1/4 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
       </section>
 
-      {/* Social Links Section */}
-      <section className="w-full border-t border-purple-900/50 backdrop-blur-sm bg-black/50">
+      {/* Social Links Section with animated line */}
+      <section className="w-full backdrop-blur-sm bg-black/50 relative">
+        {/* Add animated line */}
+        <div className="absolute -top-px left-[10%] right-[10%] h-[2px] overflow-hidden">
+          <div className="w-full h-full bg-gradient-to-r from-transparent via-purple-500/50 to-transparent animate-shimmer" />
+        </div>
+
         <div className="container mx-auto px-4 py-12">
           <div className="flex flex-col items-center gap-6">
-            <h3 className="text-purple-400 font-medium text-lg">Connect With Me</h3>
+            <h3 className="text-purple-400 font-medium text-lg">
+              Connect With Me
+            </h3>
             <div className="flex flex-wrap justify-center gap-8">
               {[
-                { href: "https://github.com/zaherlavi", icon: "/githubIcon.svg", label: "GitHub" },
-                { href: "https://www.linkedin.com/in/zaher-lavi-a85a70172/", icon: "/linkedinIcon.svg", label: "LinkedIn" },
-                { href: "https://www.instagram.com/zaher.lavi/", icon: "/instagramIcon.svg", label: "Instagram" },
-                { href: "https://twitter.com/NULL____pointer", icon: "/xIcon.svg", label: "X" }
+                {
+                  href: "https://github.com/zaherlavi",
+                  icon: "/githubIcon.svg",
+                  label: "GitHub",
+                },
+                {
+                  href: "https://www.linkedin.com/in/zaher-lavi-a85a70172/",
+                  icon: "/linkedinIcon.svg",
+                  label: "LinkedIn",
+                },
+                {
+                  href: "https://www.instagram.com/zaher.lavi/",
+                  icon: "/instagramIcon.svg",
+                  label: "Instagram",
+                },
+                {
+                  href: "https://twitter.com/NULL____pointer",
+                  icon: "/xIcon.svg",
+                  label: "X",
+                },
               ].map((social, index) => (
                 <a
                   key={index}

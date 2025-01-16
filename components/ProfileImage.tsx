@@ -13,14 +13,13 @@ const ProfileImage = () => {
           {/* Image container */}
           <div className="relative w-full h-full rounded-full overflow-hidden">
             <div className="absolute inset-0 flex items-center justify-center">
-            <Image
-              src="/zaher.png" 
+              <img
+              src="/zaher.png"
               alt="Zaher Lavi"
-              width={5184}  
-              height={3456} 
+              width={4583}
+              height={3429}
               className="w-full h-full object-cover object-center"
-              priority
-            />
+              />
             </div>
           </div>
   
