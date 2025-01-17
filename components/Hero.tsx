@@ -14,7 +14,7 @@ const Hero = () => {
                   Welcome to my portfolio
                 </h2>
                 <h1 className="text-5xl md:text-6xl font-bold mb-4">
-                  <span className="bg-gradient-to-r from-white to-purple-500 text-transparent bg-clip-text">
+                  <span className="bg-gradient-to-r from-white to-purple-500 text-transparent bg-clip-text animate-text-shimmer bg-[length:200%_100%]">
                     Hi, I'm Zaher Lavi
                   </span>
                 </h1>
