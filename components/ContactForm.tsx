@@ -50,7 +50,9 @@ const ContactForm: React.FC = () => {
         body: JSON.stringify(formData),
       });
 
-      console.log("Response status:", response.status);
+      if (response.status === 429) {
+        throw new Error("Too many requests. Please try again later.");
+      }
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

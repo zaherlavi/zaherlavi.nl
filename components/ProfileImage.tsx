@@ -1,6 +1,3 @@
-// ProfileImage component
-import Image from "next/image";
-
 const ProfileImage = () => {
   return (
     <div className="relative flex justify-center lg:justify-end">

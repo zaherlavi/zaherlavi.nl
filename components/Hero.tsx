@@ -4,11 +4,11 @@ const Hero = () => {
   return (
     <div>
       {/* Main Hero Section */}
-      <section className="h-screen flex items-center relative overflow-hidden">
+      <section className="min-h-screen flex items-center relative overflow-hidden pb-24 sm:pb-0">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Text Content */}
-            <div className="space-y-6">
+            <div className="space-y-6 order-2 lg:order-1">
               <div>
                 <h2 className="text-purple-400 text-lg font-medium mb-2">
                   Welcome to my portfolio
@@ -45,7 +45,9 @@ const Hero = () => {
             </div>
 
             {/* Profile Image */}
-            <ProfileImage />
+            <div className="order-1 lg:order-2">
+              <ProfileImage />
+            </div>
           </div>
         </div>
 
@@ -54,7 +56,7 @@ const Hero = () => {
         <div className="absolute -z-10 bottom-1/4 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
       </section>
 
-      {/* Social Links Section with animated line */}
+      {/* Social Links Section */}
       <section className="w-full backdrop-blur-sm bg-black/50 relative">
         {/* Add animated line */}
         <div className="absolute -top-px left-[10%] right-[10%] h-[2px] overflow-hidden">
