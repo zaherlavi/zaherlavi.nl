@@ -14,7 +14,7 @@ const ProfileImage = () => {
           <div className="relative w-full h-full rounded-full overflow-hidden">
             <div className="absolute inset-0 flex items-center justify-center">
               <img
-              src="/zaher.png"
+              src="https://c0yzrwzfg3.ufs.sh/f/HJYp9qKaAcIETKGUQa2ICpMmXAkQdi7SLwsh1uObrZ65NVxj"
               alt="Zaher Lavi"
               width={4583}
               height={3429}
