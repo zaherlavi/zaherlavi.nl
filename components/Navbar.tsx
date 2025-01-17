@@ -13,7 +13,7 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, onClick }) => (
     <a 
       href={href} 
       onClick={onClick}
-      className="text-indigo-400 hover:bg-gradient-to-r from-indigo-500 to-purple-500 hover:text-transparent hover:bg-clip-text"
+      className="text-transparent bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text animate-text-shimmer bg-[length:200%_100%]"
     >
       {children}
     </a>
