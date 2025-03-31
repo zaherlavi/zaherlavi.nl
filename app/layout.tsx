@@ -1,6 +1,8 @@
 import { Inter } from "next/font/google";
 import "@/app/ui/globals.css";
 import { Metadata } from "next";
+import ScrollToTop from "@/components/ScrollToTop";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,12 +19,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${inter.className} bg-background-light dark:bg-background-dark min-h-screen`}
+      >
+        <ThemeProvider>
+          {children}
+          <ScrollToTop />
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

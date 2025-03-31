@@ -16,7 +16,6 @@ const ContactForm: React.FC = () => {
   const [success, setSuccess] = useState(false);
 
   const validateForm = () => {
-    console.log("FormData:", formData);
     try {
       ContactFormSchema.parse(formData);
       setErrors({});
@@ -80,13 +79,14 @@ const ContactForm: React.FC = () => {
 
   const inputClassName = `
     w-full p-4 rounded-lg 
-    bg-purple-900/20
-    border border-purple-400/20
-    text-white 
-    placeholder-gray-400
+    bg-white dark:bg-purple-900/20
+    border border-gray-300 dark:border-purple-400/20
+    text-gray-800 dark:text-white 
+    placeholder-gray-500 dark:placeholder-gray-400
     transition-all duration-300
-    hover:border-purple-400
-    focus:outline-none focus:border-purple-400
+    hover:border-primary-dark dark:hover:border-purple-400
+    focus:outline-none focus:border-primary-dark dark:focus:border-purple-400
+    shadow-sm dark:shadow-none
   `;
 
   const getInputClassNames = (fieldName: keyof ContactFormType) => `
@@ -98,7 +98,10 @@ const ContactForm: React.FC = () => {
     <div className="w-full max-w-xl mx-auto">
       <form onSubmit={handleSubmit} className="space-y-6" noValidate>
         <div>
-          <label htmlFor="name" className="block text-white mb-2 text-lg">
+          <label
+            htmlFor="name"
+            className="block text-gray-700 dark:text-white mb-2 text-lg"
+          >
             Name
           </label>
           <input
@@ -118,7 +121,10 @@ const ContactForm: React.FC = () => {
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-white mb-2 text-lg">
+          <label
+            htmlFor="email"
+            className="block text-text-light dark:text-white mb-2 text-lg"
+          >
             Email
           </label>
           <input
@@ -138,7 +144,10 @@ const ContactForm: React.FC = () => {
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-white mb-2 text-lg">
+          <label
+            htmlFor="message"
+            className="block text-text-light dark:text-white mb-2 text-lg"
+          >
             Message
           </label>
           <textarea

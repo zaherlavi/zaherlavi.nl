@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { ThemeToggle } from "./ThemeToggle";
 
 interface NavLinkProps {
   href: string;
@@ -13,7 +14,7 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, onClick }) => (
     <a
       href={href}
       onClick={onClick}
-      className="text-transparent bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text animate-text-shimmer bg-[length:200%_100%]"
+      className="text-transparent bg-gradient-to-r from-primary-dark dark:from-indigo-500 to-primary-light dark:to-purple-500 bg-clip-text animate-text-shimmer bg-[length:200%_100%]"
     >
       {children}
     </a>
@@ -44,41 +45,50 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-black/80 backdrop-blur-sm">
-      {/* Mobile Navigation */}
-      <div ref={menuRef} className="flex md:hidden items-center relative">
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="text-4xl text-indigo-400 hover:text-indigo-500 hover:cursor-pointer p-4"
-          aria-label="Toggle menu"
-        >
-          &#9776;
-        </button>
-        {isOpen && (
-          <div className="absolute top-full left-5 bg-purple-900/85 backdrop-blur-sm shadow-lg rounded-br-lg p-2 animate-fadeIn">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={closeMenu}
-                className="block text-2xl text-white hover:text-indigo-300 py-2 px-4 transition-colors"
-              >
-                {item.label}
-              </a>
-            ))}
+    <nav className="sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md">
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center relative">
+          {/* Mobile Navigation */}
+          <div className="flex md:hidden items-center">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-4xl text-indigo-400 hover:text-indigo-500 hover:cursor-pointer p-4"
+              aria-label="Toggle menu"
+            >
+              &#9776;
+            </button>
+            {isOpen && (
+              <div className="absolute top-full left-5 bg-background-light/95 dark:bg-purple-900/85 backdrop-blur-sm shadow-lg rounded-br-lg p-2 animate-fadeIn">
+                {navItems.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={closeMenu}
+                    className="block text-2xl text-gray-800 dark:text-white hover:text-primary-dark dark:hover:text-indigo-300 py-2 px-4 transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
-        )}
-      </div>
 
-      {/* Desktop Navigation */}
-      <div className="hidden md:flex justify-center py-2">
-        <ul className="flex space-x-4">
-          {navItems.map((item) => (
-            <NavLink key={item.href} href={item.href}>
-              {item.label}
-            </NavLink>
-          ))}
-        </ul>
+          {/* Desktop Navigation - Centered */}
+          <div className="hidden md:flex flex-1 justify-center">
+            <ul className="flex space-x-4">
+              {navItems.map((item) => (
+                <NavLink key={item.href} href={item.href}>
+                  {item.label}
+                </NavLink>
+              ))}
+            </ul>
+          </div>
+
+          {/* Theme Toggle - Right */}
+          <div className="flex items-center">
+            <ThemeToggle />
+          </div>
+        </div>
       </div>
     </nav>
   );

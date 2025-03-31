@@ -1,4 +1,8 @@
+import { useTheme } from "./ThemeProvider";
+
 const ProfileImage = () => {
+  const { theme } = useTheme();
+
   return (
     <div className="relative flex justify-center lg:justify-end">
       <div className="relative w-80 h-80 md:w-[28rem] md:h-[28rem]">
@@ -8,7 +12,11 @@ const ProfileImage = () => {
         </div>
 
         {/* Image container */}
-        <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-purple-500/50">
+        <div
+          className={`relative w-full h-full rounded-full overflow-hidden ${
+            theme === "dark" ? "border-2 border-purple-500/50" : "border-0"
+          }`}
+        >
           <img
             src="https://c0yzrwzfg3.ufs.sh/f/HJYp9qKaAcIEiPMLzuhS13gKhXWtaQ9uZkF7MxOe8cNA6nb0"
             alt="Zaher Lavi"
