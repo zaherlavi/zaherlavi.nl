@@ -1,5 +1,6 @@
 import { useTheme } from "./ThemeProvider";
 import Image from "next/image";
+import ProfileImageSource from "@/public/profile-image.jpg"
 
 const ProfileImage = () => {
   const { theme } = useTheme();
@@ -15,7 +16,7 @@ const ProfileImage = () => {
           }`}
         >
           <Image
-            src="/Zaher Lavi.jpg"
+            src={ProfileImageSource}
             alt="Zaher Lavi"
             fill
             className="object-cover object-center"

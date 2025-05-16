@@ -55,6 +55,25 @@ export default function Home() {
                       theme === "dark" ? "text-white" : "text-black"
                     }`}
                   >
+                    Full-Stack Engineer
+                  </h4>
+                  <p
+                    className={`mb-2 ${
+                      theme === "dark" ? "text-purple-300" : "text-purple-700"
+                    }`}
+                  >
+                    <b>Capisoft</b> (March 2025, Present)
+                  </p>
+                  <p className={theme === "dark" ? "text-white" : "text-black"}>
+                    Actively involved in developing full-stack web applications using React, Django, and Firebase. Integrating AI into organizational applications used daily by professionals. Committed to writing clean, reusable, and secure code, reinforced by thorough testing to ensure production readiness, in collaboration with our brilliant team.
+                  </p>
+                </div>
+                <div>
+                  <h4
+                    className={`text-xl font-semibold ${
+                      theme === "dark" ? "text-white" : "text-black"
+                    }`}
+                  >
                     IT Digital Support
                   </h4>
                   <p
@@ -62,7 +81,7 @@ export default function Home() {
                       theme === "dark" ? "text-purple-300" : "text-purple-700"
                     }`}
                   >
-                    Vrije Universiteit of Amsterdam (Feb 2022, Present)
+                    <b>Vrije Universiteit of Amsterdam</b> (Feb 2022, Present)
                   </p>
                   <p className={theme === "dark" ? "text-white" : "text-black"}>
                     Supporting the exam hall by troubleshooting network and
@@ -82,7 +101,7 @@ export default function Home() {
                       theme === "dark" ? "text-purple-300" : "text-purple-700"
                     }`}
                   >
-                    Barg Print (Feb 2019, Aug 2020)
+                    <b>Barg Print</b> (Feb 2019, Aug 2020)
                   </p>
                   <p className={theme === "dark" ? "text-white" : "text-black"}>
                     Managed client branding and designed websites, logos, and
@@ -103,7 +122,7 @@ export default function Home() {
                       theme === "dark" ? "text-purple-300" : "text-purple-700"
                     }`}
                   >
-                    Vervai (May 2024, March 2025)
+                    <b>Vervai</b> (May 2024, March 2025)
                   </p>
                   <p className={theme === "dark" ? "text-white" : "text-black"}>
                     Co-founded a startup focused on AI and data integration for
@@ -137,7 +156,7 @@ export default function Home() {
                       theme === "dark" ? "text-purple-200" : "text-purple-700"
                     }
                   >
-                    Vrije Universiteit Amsterdam (Sep 2022, Present)
+                    Vrije Universiteit Amsterdam (Sep 2022, Estimated graduation date: July 2025)
                   </p>
                 </div>
                 <div>
