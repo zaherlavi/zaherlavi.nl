@@ -6,7 +6,7 @@ const Hero = () => {
     <section className="relative min-h-screen">
       {/* Main Hero Section */}
       <section className="min-h-screen flex items-center relative overflow-hidden pb-24 sm:pb-0">
-        <div className="container mx-auto px-24">
+        <div className="container mx-auto px-12">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Text Content */}
             <div className="space-y-8 order-2 lg:order-1">
