@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { ContactFormSchema } from "@/lib/validations/contact";
-import { redis } from "@/lib/redis";
+import { ratelimit } from "@/lib/redis";
 
 // Initialize Resend with fallback for build time
 const resend = process.env.RESEND_API_KEY
@@ -22,50 +22,35 @@ export async function POST(req: Request) {
 
     // Get IP address for rate limiting
     const ip = req.headers.get("x-forwarded-for") || "127.0.0.1";
-    const rateLimitKey = `ratelimit:${ip}`;
 
-    // Check rate limit if Redis is configured (non-blocking with timeout)
-    let rateLimitExceeded = false;
-    if (redis) {
+    // Check rate limit using Upstash Ratelimit SDK
+    if (ratelimit) {
       try {
-        const requests = await Promise.race([
-          redis.incr(rateLimitKey).then(async (count) => {
-            if (count === 1 && redis) {
-              await redis.expire(rateLimitKey, 3600);
-            }
-            return count;
-          }),
-          new Promise<number>((_, reject) => 
-            setTimeout(() => reject(new Error("Rate limit check timeout")), 2000)
-          )
-        ]);
+        const { success, limit, reset, remaining } = await ratelimit.limit(ip);
         
-        if (requests > 5) {
-          console.warn(`Rate limit exceeded for IP: ${ip}`);
-          rateLimitExceeded = true;
+        console.log(`Rate limit check for IP ${ip}: success=${success}, remaining=${remaining}/${limit}`);
+        
+        if (!success) {
+          const resetDate = new Date(reset);
+          console.warn(`Rate limit exceeded for IP: ${ip}. Resets at ${resetDate}`);
+          return NextResponse.json(
+            {
+              success: false,
+              error: `Rate limit exceeded. Please try again after ${resetDate.toLocaleTimeString()}.`,
+            },
+            { status: 429 }
+          );
         }
-        console.log(`Rate limit check passed for IP: ${ip}, requests: ${requests}`);
       } catch (redisError) {
         console.error("Redis rate limiting error:", redisError);
-        // In production, we should fail if Redis is down
-        // In development, we can continue
-        if (process.env.NODE_ENV === "production") {
+        // In production, fail if Redis is configured but unavailable
+        if (process.env.NODE_ENV === "production" && process.env.UPSTASH_REDIS_REST_URL) {
           throw new Error("Rate limiting service unavailable");
         }
-        console.warn("Redis unavailable in development, skipping rate limit");
+        console.warn("Redis unavailable, skipping rate limit");
       }
     } else {
       console.warn("Redis not configured, skipping rate limiting");
-    }
-
-    if (rateLimitExceeded) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: "Rate limit exceeded. Please try again later.",
-        },
-        { status: 429 }
-      );
     }
 
     const body = await req.json();
