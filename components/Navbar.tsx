@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { ThemeToggle } from "./ThemeToggle";
 
 interface NavLinkProps {
   href: string;
@@ -45,7 +44,7 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 w-full backdrop-blur-md bg-black/30">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center relative">
           {/* Mobile Navigation */}
@@ -82,11 +81,6 @@ const Navbar: React.FC = () => {
                 </NavLink>
               ))}
             </ul>
-          </div>
-
-          {/* Theme Toggle - Right */}
-          <div className="flex items-center">
-            <ThemeToggle />
           </div>
         </div>
       </div>

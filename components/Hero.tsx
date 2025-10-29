@@ -3,20 +3,20 @@ import ScrollIndicator from "./ScrollIndicator";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen bg-background-light dark:bg-background-dark">
+    <section className="relative min-h-screen">
       {/* Main Hero Section */}
       <section className="min-h-screen flex items-center relative overflow-hidden pb-24 sm:pb-0">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Text Content */}
-            <div className="space-y-6 order-2 lg:order-1">
+            <div className="space-y-8 order-2 lg:order-1">
               <div>
                 <h2 className="text-primary-dark dark:text-purple-400 text-lg font-medium mb-2">
                   Welcome to my portfolio
                 </h2>
                 <h1 className="text-5xl md:text-6xl font-bold mb-4">
                   <span className="bg-gradient-to-r from-primary-dark dark:from-white to-primary-light dark:to-purple-500 text-transparent bg-clip-text animate-text-shimmer bg-[length:200%_100%]">
-                    Hi, I'm Zaher Lavi
+                    I'm Zaher Lavi
                   </span>
                 </h1>
                 <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300">
@@ -24,7 +24,7 @@ const Hero = () => {
                 </p>
               </div>
               <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-2xl">
-                A Computer Science student passionate about creating innovative
+                A software engineer passionate about creating innovative
                 solutions and exploring new technologies. Based in The
                 Netherlands, I'm always eager to take on new challenges and
                 learn from every experience.
@@ -63,7 +63,7 @@ const Hero = () => {
       </section>
 
       {/* Social Links Section */}
-      <section className="w-full backdrop-blur-sm bg-background-light/50 dark:bg-background-dark/50 relative">
+      <section className="w-full backdrop-blur-sm relative">
         {/* Add animated line */}
         <div className="absolute -top-px left-[10%] right-[10%] h-[2px] overflow-hidden">
           <div className="w-full h-full bg-gradient-to-r from-transparent via-primary-light dark:via-purple-500/50 to-transparent animate-shimmer" />
@@ -72,7 +72,7 @@ const Hero = () => {
         <div className="container mx-auto px-4 py-12">
           <div className="flex flex-col items-center gap-6">
             <h3 className="text-primary-dark dark:text-purple-400 font-medium text-lg">
-              Connect With Me
+              Connect With Me on Social Media
             </h3>
             <div className="flex flex-wrap justify-center gap-8">
               {[
@@ -85,11 +85,6 @@ const Hero = () => {
                   href: "https://www.linkedin.com/in/zaher-lavi-a85a70172/",
                   icon: "/linkedinIcon.svg",
                   label: "LinkedIn",
-                },
-                {
-                  href: "https://www.instagram.com/zaher.lavi/",
-                  icon: "/instagramIcon.svg",
-                  label: "Instagram",
                 },
                 {
                   href: "https://twitter.com/NULL____pointer",

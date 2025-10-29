@@ -35,6 +35,7 @@ const ContactForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitError("");
+    setSuccess(false);
 
     if (!validateForm()) return;
 
@@ -54,7 +55,8 @@ const ContactForm: React.FC = () => {
       }
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
       }
 
       const data = await response.json();
@@ -63,6 +65,10 @@ const ContactForm: React.FC = () => {
       if (data.success) {
         setSuccess(true);
         setFormData({ name: "", email: "", message: "" });
+        // Clear success message after 5 seconds
+        setTimeout(() => {
+          setSuccess(false);
+        }, 5000);
       } else {
         throw new Error(data.error || "Failed to send message");
       }

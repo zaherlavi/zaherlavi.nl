@@ -1,9 +1,7 @@
-import { useTheme } from "./ThemeProvider";
 import Image from "next/image";
 import ProfileImageSource from "@/public/profile-image.jpg"
 
 const ProfileImage = () => {
-  const { theme } = useTheme();
 
   return (
     <div className="relative flex justify-center lg:justify-end">
@@ -11,9 +9,7 @@ const ProfileImage = () => {
        
         {/* Image container */}
         <div
-          className={`relative w-full h-full rounded-full overflow-hidden ${
-            theme === "dark" ? "border-2 border-purple-500/50" : "border-0"
-          }`}
+          className={"relative w-full h-full rounded-full overflow-hidden border-2 border-purple-500/50"}
         >
           <Image
             src={ProfileImageSource}

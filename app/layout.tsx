@@ -1,10 +1,12 @@
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "@/app/ui/globals.css";
 import { Metadata } from "next";
 import ScrollToTop from "@/components/ScrollToTop";
-import { ThemeProvider } from "@/components/ThemeProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({ 
+  weight: ['400', '500', '600', '700'],
+  subsets: ["latin"] 
+});
 
 export const metadata: Metadata = {
   title: "Zaher Lavi - Personal Website",
@@ -23,14 +25,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${inter.className} bg-background-light dark:bg-background-dark min-h-screen`}
+        className={`${poppins.className} bg-background-dark min-h-screen`}
       >
-        <ThemeProvider>
-          {children}
-          <ScrollToTop />
-        </ThemeProvider>
+        {children}
+        <ScrollToTop />
       </body>
     </html>
   );

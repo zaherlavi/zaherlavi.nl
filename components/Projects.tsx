@@ -1,4 +1,3 @@
-import { useTheme } from "@/components/ThemeProvider";
 import projects from "@/lib/projectsData";
 
 interface Project {
@@ -8,40 +7,25 @@ interface Project {
 }
 
 const Projects: React.FC = () => {
-  const { theme } = useTheme();
   return (
-    <div className="grid md:grid-cols-2 gap-6">
+    <div className="grid md:grid-cols-2 gap-8">
       {projects.map((project, index) => (
         <div
           key={index}
-          className={`group p-6 rounded-lg border transition-all duration-300 ${
-            theme === "dark"
-              ? "bg-gradient-to-br from-purple-900/50 to-black border-purple-500/50 hover:border-purple-400 hover:from-purple-900"
-              : "bg-white/90 border-purple-200 hover:border-purple-300 hover:bg-white"
-          }`}
+          className={"group p-8 rounded-lg border transition-all duration-300 bg-gradient-to-br from-purple-900/50 border-purple-500/50 hover:border-purple-400 hover:from-purple-900 to-purple-900/70 hover:shadow-lg"}
         >
           <h3
-            className={`text-xl font-semibold mb-2 transition-colors ${
-              theme === "dark"
-                ? "text-white group-hover:text-purple-300"
-                : "text-gray-800 group-hover:text-purple-600"
-            }`}
+            className={"text-2xl font-semibold mb-3 transition-colors text-white group-hover:text-purple-300"}
           >
             {project.title}
           </h3>
           <p
-            className={`text-sm mb-2 ${
-              theme === "dark" ? "text-purple-300/80" : "text-purple-600"
-            }`}
+            className={"text-base mb-3 text-purple-300/80"}
           >
             {project.period}
           </p>
           <p
-            className={`transition-colors ${
-              theme === "dark"
-                ? "text-gray-400 group-hover:text-gray-300"
-                : "text-gray-600 group-hover:text-gray-700"
-            }`}
+            className={"text-lg transition-colors text-gray-400 group-hover:text-gray-300 leading-relaxed"}
           >
             {project.description}
           </p>
