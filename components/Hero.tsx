@@ -46,14 +46,14 @@ const Hero = () => {
             </div>
 
             {/* Profile Image */}
-            <div className="order-1 lg:order-2">
+            <div className="order-1 lg:order-2 mt-20 lg:mt-0">
               <ProfileImage />
             </div>
           </div>
         </div>
 
         {/* Adjusted position of ScrollIndicator */}
-        <div className="absolute bottom-32 left-1/2 transform -translate-x-1/2">
+        <div className="hidden md:block absolute bottom-32 left-1/2 transform -translate-x-1/2">
           <ScrollIndicator />
         </div>
 
@@ -63,13 +63,13 @@ const Hero = () => {
       </section>
 
       {/* Social Links Section */}
-      <section className="w-full backdrop-blur-sm relative">
+      <section className="w-full backdrop-blur-sm relative py-20">
         {/* Add animated line */}
-        <div className="absolute -top-px left-[10%] right-[10%] h-[2px] overflow-hidden">
+        <div className="absolute top-0 left-[10%] right-[10%] h-[2px] overflow-hidden">
           <div className="w-full h-full bg-gradient-to-r from-transparent via-primary-light dark:via-purple-500/50 to-transparent animate-shimmer" />
         </div>
 
-        <div className="container mx-auto px-4 py-12">
+        <div className="container mx-auto px-4 pt-20">
           <div className="flex flex-col items-center gap-6">
             <h3 className="text-primary-dark dark:text-purple-400 font-medium text-lg">
               Connect With Me on Social Media
